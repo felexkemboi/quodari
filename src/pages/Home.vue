@@ -1,15 +1,12 @@
 <template>
-  <q-page class="flex flex-start">
-    <q-img src="../assets/top.png" style="height:220px;z-index: 1;"/>
-    <q-img src="../assets/toptop.png" style="width: 30%;height:200px;position:absolute;top: 130px;left: 35px;z-index: 2;"/>
-    <div class="q-pa-md" style="margin-top:120px;padding-left:40px;">
-      <div class="row" style="color:#76cfbf">
-        <strong>Kunsthal Rotterdam - demo</strong>
-      </div>
-
-      <div class="row q-gutter-sm"  style="margin-top:10px;" v-if="records.collection_picture">
+  <q-page>
+    <q-img src="../assets/top.png" class="img1"/>
+    <q-img src="../assets/toptop.png" class="img2"/>
+    <div class="q-pa-md header">
+      <p class="row name">Kunsthal Rotterdam - demo</p>
+      <div class="row q-gutter-sm sub-header" v-if="records.collection_picture">
         <div>
-          <img :src="getPhoto(records.collection_picture.content_url)" style="height: 50px; max-width: 50px;border-radius: 12px;">
+          <img class="profile-image" :src="getPhoto(records.collection_picture.content_url)">
         </div>
         <div>
           {{ records.name }}
@@ -17,13 +14,13 @@
       </div>
 
     </div>
-    <div class="row" v-if="records" style="padding-left:5px;">
+    <div class="row cards" v-if="records">
       <q-list v-for="(memo,index) in records.memos_per_collection" :key="index">
-        <div class="q-pa-md col-xs-12 col-sm-6 col-md-4" style="min-width:320px;">
-          <q-card class="bg-grey-1" style="overflow-wrap: break-word;inline-size: 430px;">
+        <div class="q-pa-md cards-div">
+          <q-card class="card bg-grey-1">
             <q-item-section class="q-pt-md q-pl-md">
               <q-item-label caption>
-                <q-icon name="event" style="color: #ccc; font-size: 1.4em;"/> {{ computeTime(memo.memo.date_event)}}
+                <q-icon name="event" class="event-icon"/> {{ computeTime(memo.memo.date_event)}}
               </q-item-label>
             </q-item-section>
             <q-item-section class="q-pt-sm q-pl-md">
@@ -36,20 +33,24 @@
                 {{ memo.memo.description.length > 160 ? trimDescription(memo.memo.description) : memo.memo.description }}
               </q-item-label>
             </q-item-section>
-
             <q-item-section class="q-pl-md q-pt-sm">
               <q-item-label>
                 <p style="color: #76cfbf;">Read More</p>
               </q-item-label>
             </q-item-section>
-            <q-item class="q-pl-sm">
+            <q-item class="q-pl-none q-pb-xs">
               <div v-if="memo.memo.memo_photos.length > 0">
-                <img :src="getPhoto(memo.memo.memo_photos[0].content_url)" style="height: 170px; max-width: 300px">
+                <img class="photos-image" :src="getPhoto(memo.memo.memo_photos[0].content_url)">
               </div>
               <div v-else>
                 No Photo
               </div>
             </q-item>
+            <q-item-section class="q-pa-xs q-pb-md">
+              <q-item-label caption align="right">
+                <q-badge class="badge">{{ records.name }}</q-badge>
+              </q-item-label>
+            </q-item-section>
           </q-card>
         </div>
       </q-list>
@@ -76,10 +77,10 @@ export default {
     },
     trimDescription(description){
       return `${description.substring(0,160)}...`
-    }
+    },
+    gallery(urls){
+      return urls.map(url => `https://api.staging.quodari.com${url.content_url}`);
+    },
   }
 };
 </script>
-
-<style lang="sass" scoped>
-</style>

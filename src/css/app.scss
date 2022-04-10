@@ -1,1 +1,62 @@
 // app global css in SCSS form
+.img1 {
+  height:220px;
+  z-index: 1;
+}
+
+.img2 {
+  width: 30%;
+  height:200px;
+  position:absolute;
+  top: 130px;
+  left: 35px;
+  z-index: 2;
+}
+
+.name {
+  color:#76cfbf;
+  font-weight: bold;
+}
+
+.header {
+  margin-top:120px;
+  padding-left:40px;
+}
+
+.sub-header {
+  margin-top:10px;
+}
+
+.profile-image {
+  height: 50px;
+  max-width: 50px;
+  border-radius: 12px;
+}
+
+.cards {
+  padding-left:10px;
+}
+
+.cards-div {
+  min-width:320px;
+}
+
+.card {
+  overflow-wrap: break-word;
+  inline-size: 430px;
+}
+
+.event-icon {
+  color: #ccc;
+  font-size: 1.4em;
+}
+
+.photos-image {
+  height: 300px;
+  width: 430px
+}
+
+.badge {
+  margin-right:20px;
+  background-color: #ccc;
+}
