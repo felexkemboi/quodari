@@ -19,7 +19,6 @@
               borderless
               label-color="orange"
               input-class="text-h8"
-              :input-style="{ color: '#ff0000' }"
             >
               <template v-slot:prepend>
                 <q-icon name="translate" @click.stop />

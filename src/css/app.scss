@@ -33,6 +33,10 @@
   border-radius: 12px;
 }
 
+.details-image {
+  height: 350px;
+  width: 760px;
+}
 .cards {
   padding-left:10px;
 }
@@ -58,5 +62,10 @@
 
 .badge {
   margin-right:20px;
+  background-color: #ccc;
+}
+
+.badge-details {
+  padding-right:0px;
   background-color: #ccc;
 }

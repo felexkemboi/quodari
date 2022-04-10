@@ -35,7 +35,7 @@
             </q-item-section>
             <q-item-section class="q-pl-md q-pt-sm">
               <q-item-label>
-                <p style="color: #76cfbf;">Read More</p>
+                <p style="color: #76cfbf;" @click="readMore(memo.memo.id)">Read More</p>
               </q-item-label>
             </q-item-section>
             <q-item class="q-pl-none q-pb-xs">
@@ -65,10 +65,19 @@ import { mapState } from 'pinia/dist/pinia';
 import { main } from '../stores/main';
 export default {
   name: 'HomePage',
+  data(){
+    return {
+      memo: {}
+    }
+  },
   computed: {
     ...mapState(main, ['records']),
   },
   methods:{
+    readMore(id){
+      console.log(id)
+      this.$router.push({ name: 'details', params: { memo: id}})
+    },
     getPhoto(url) {
       return  `https://api.staging.quodari.com/${url}`;
     },
@@ -77,9 +86,6 @@ export default {
     },
     trimDescription(description){
       return `${description.substring(0,160)}...`
-    },
-    gallery(urls){
-      return urls.map(url => `https://api.staging.quodari.com${url.content_url}`);
     },
   }
 };
