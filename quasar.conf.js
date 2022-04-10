@@ -140,9 +140,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
-        description: `A Quasar Framework app`,
+        name: `Quodari Social App`,
+        short_name: `Quodari Social App`,
+        description: `Quodari Social Media Private App `,
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",

@@ -1,8 +1,8 @@
 {
   "name": "quodari-vue",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "Quodari - The Private Social Media",
+  "productName": "Quodari - The Private Social Media",
   "author": "felex kemboi <felokemboi10@gmail.com>",
   "private": true,
   "scripts": {
